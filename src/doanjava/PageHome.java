@@ -38,25 +38,54 @@ public class PageHome extends javax.swing.JFrame {
                 g.drawImage(i, 0, 0, this.getSize().height, this.getSize().width, this);
             }
         };
+        jPanel3 = new javax.swing.JPanel();
+        lblStudents = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnDangkihocvien = new javax.swing.JButton();
         btnQuanlyhocvien = new javax.swing.JButton();
-        btnBaocao = new javax.swing.JButton();
         btnBangdiem = new javax.swing.JButton();
         btnDangkimonhoc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Page home");
 
+        jPanel3.setBackground(new java.awt.Color(153, 0, 204));
+
+        lblStudents.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblStudents.setText("Account join=");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblStudents)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblStudents)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(212, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 416, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
@@ -74,14 +103,6 @@ public class PageHome extends javax.swing.JFrame {
         btnQuanlyhocvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuanlyhocvienActionPerformed(evt);
-            }
-        });
-
-        btnBaocao.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        btnBaocao.setText("Báo cáo");
-        btnBaocao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBaocaoActionPerformed(evt);
             }
         });
 
@@ -106,29 +127,26 @@ public class PageHome extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+                .addContainerGap(169, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnBangdiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBaocao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnQuanlyhocvien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDangkihocvien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDangkimonhoc))
-                .addGap(131, 131, 131))
+                .addGap(151, 151, 151))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnQuanlyhocvien)
                 .addGap(18, 18, 18)
                 .addComponent(btnDangkihocvien)
                 .addGap(13, 13, 13)
                 .addComponent(btnBangdiem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBaocao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnDangkimonhoc)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(129, 129, 129))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,14 +199,6 @@ public class PageHome extends javax.swing.JFrame {
         dispose ();
     }//GEN-LAST:event_btnBangdiemActionPerformed
 
-    private void btnBaocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaocaoActionPerformed
-        // TODO add your handling code here:
-        BaoCao bc=new BaoCao();
-        bc.setVisible(true);
-        bc.setTitle("Báo cáo");
-        dispose();
-    }//GEN-LAST:event_btnBaocaoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -226,11 +236,12 @@ public class PageHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBangdiem;
-    private javax.swing.JButton btnBaocao;
     private javax.swing.JButton btnDangkihocvien;
     private javax.swing.JButton btnDangkimonhoc;
     private javax.swing.JButton btnQuanlyhocvien;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    public static javax.swing.JLabel lblStudents;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -203,7 +204,7 @@ public class RegisterAccount extends javax.swing.JFrame {
         Connection conDB= DBConnection.connectDB();
         if(conDB!=null){
             try {
-                PreparedStatement st= (PreparedStatement)conDB.prepareStatement("INSERT INTO register_account_qlhv ( name, username, password, confirm_password, gender, phone, email, address) VALUE (?,?,?,?,?,?,?,?)") ;
+                PreparedStatement st= (PreparedStatement)conDB.prepareStatement("INSERT INTO register_account_qlhv (name, username, password, confirm_password, gender, phone, email, address) VALUE (?,?,?,?,?,?,?,?)") ;
                 
                 st.setString(1, name);
                 st.setString(2, username);
