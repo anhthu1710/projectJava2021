@@ -33,7 +33,10 @@ public class LogIn extends javax.swing.JFrame {
         dbconnect = new DBConnection();
         if(dbconnect == null){
             JOptionPane.showMessageDialog(this, "Database không thể kết nối", "Error !", JOptionPane.ERROR_MESSAGE);
-        }            
+        }           
+        
+        lblUsername.setVisible(false);
+        lblPassword.setVisible(false);
     }
 
     /**
@@ -53,14 +56,15 @@ public class LogIn extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnSignin = new javax.swing.JButton();
         jlforgetPassword = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
+        panel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log In");
         setBackground(new java.awt.Color(255, 153, 153));
         setForeground(new java.awt.Color(255, 153, 153));
+        setLocationByPlatform(true);
         setSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(null);
 
@@ -136,15 +140,15 @@ public class LogIn extends javax.swing.JFrame {
         getContentPane().add(jlforgetPassword);
         jlforgetPassword.setBounds(270, 310, 150, 23);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doanjava/Images/tich.png"))); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(590, 170, 30, 30);
+        lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doanjava/Images/warning.png"))); // NOI18N
+        getContentPane().add(lblPassword);
+        lblPassword.setBounds(580, 170, 50, 48);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doanjava/Images/tich.png"))); // NOI18N
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(590, 80, 30, 30);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, 0, 690, 370);
+        lblUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/doanjava/Images/warning.png"))); // NOI18N
+        getContentPane().add(lblUsername);
+        lblUsername.setBounds(580, 80, 50, 48);
+        getContentPane().add(panel);
+        panel.setBounds(-10, 0, 760, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,6 +171,9 @@ public class LogIn extends javax.swing.JFrame {
 
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         // TODO add your handling code here:
+        lblUsername.setVisible(false);
+        lblPassword.setVisible(false);
+        
         String username= txtUsername.getText();
         String password= String.valueOf(txtPassword.getPassword());
         if(username.isEmpty() || password.isEmpty()){
@@ -174,6 +181,15 @@ public class LogIn extends javax.swing.JFrame {
         }else{
             userLogin(username, password);
         }
+        
+        if(txtUsername.getText().equals("")){
+            lblUsername.setVisible(true);
+        }
+        if(String.valueOf(txtPassword.getPassword()).equals("")){
+            lblPassword.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_btnSigninActionPerformed
 
     private void jlforgetPasswordMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlforgetPasswordMouseMoved
@@ -197,10 +213,13 @@ public class LogIn extends javax.swing.JFrame {
                 st.setString(2, password);
                 ResultSet res= st.executeQuery();
                 if(res.next()){
-                    dispose();
+                    
                     PageHome ph= new PageHome();
                     ph.setTitle("Page home");
                     ph.setVisible(true);
+                    PageHome.lblStudents.setText("Account join= \t"+Integer.toString(MyFunction.countData("user")) );
+                   
+                    dispose();
                 }else{
                     System.out.println("username" +username);
                     System.out.println("password" +password);
@@ -254,15 +273,15 @@ public class LogIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton btnRegister;
     javax.swing.JButton btnSignin;
-    javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
-    javax.swing.JLabel jLabel7;
-    javax.swing.JLabel jLabel9;
     javax.swing.JLabel jlforgetPassword;
+    javax.swing.JLabel lblPassword;
+    javax.swing.JLabel lblUsername;
+    javax.swing.JLabel panel;
     javax.swing.JPasswordField txtPassword;
-    javax.swing.JTextField txtUsername;
+    public static javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     
