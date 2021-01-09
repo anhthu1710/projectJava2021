@@ -165,10 +165,7 @@ public class PageHome extends javax.swing.JFrame {
 
     private void btnQuanlyhocvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanlyhocvienActionPerformed
         // TODO add your handling code here:
-        QuanLyHocVien quanly=new QuanLyHocVien();
-        quanly.setVisible(true);
-        quanly.setTitle("Manager students");
-        dispose();
+
     }//GEN-LAST:event_btnQuanlyhocvienActionPerformed
 
     private void btnDangkihocvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangkihocvienActionPerformed
@@ -181,7 +178,10 @@ public class PageHome extends javax.swing.JFrame {
 
     private void btnDangkimonhocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangkimonhocActionPerformed
         // TODO add your handling code here:
-
+        Register_Subjects rs= new Register_Subjects();
+        rs.setVisible(true);
+        rs.setTitle("Register Subjects");
+        dispose();
     }//GEN-LAST:event_btnDangkimonhocActionPerformed
 
     /**

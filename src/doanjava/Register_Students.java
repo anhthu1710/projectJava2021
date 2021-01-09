@@ -63,6 +63,7 @@ public class Register_Students extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButtonBackHome = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jButtonCancel = new javax.swing.JButton();
 
         jLabel3.setText("MSSV");
 
@@ -120,9 +121,9 @@ public class Register_Students extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(204, 51, 0));
         jLabel8.setText("Sex");
 
-        rdNam.setText("Nam");
+        rdNam.setText("Male");
 
-        rdNu.setText("Nữ");
+        rdNu.setText("Female");
 
         jLabel9.setBackground(new java.awt.Color(153, 0, 0));
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -155,6 +156,16 @@ public class Register_Students extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(204, 51, 0));
         jLabel11.setText("( yyyy-mm-dd )");
 
+        jButtonCancel.setBackground(new java.awt.Color(102, 51, 0));
+        jButtonCancel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonCancel.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancel.setText("RESET");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -163,13 +174,8 @@ public class Register_Students extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonBackHome)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel9)
+                        .addContainerGap(330, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -200,6 +206,14 @@ public class Register_Students extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(rdNu)))
                         .addContainerGap(33, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonBackHome)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,10 +234,11 @@ public class Register_Students extends javax.swing.JFrame {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtBorn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtBorn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -242,11 +257,12 @@ public class Register_Students extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(rdNam)))
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBackHome)
-                    .addComponent(jButtonSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(85, Short.MAX_VALUE))
+                    .addComponent(jButtonSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,8 +363,26 @@ public class Register_Students extends javax.swing.JFrame {
         PageHome bh= new PageHome();
         bh.setVisible(true);
         bh.setTitle("Page home");
+        PageHome.lblStudents.setText("Account join= \t"+Integer.toString(MyFunction.countData("user")) );
         dispose();
     }//GEN-LAST:event_jButtonBackHomeActionPerformed
+
+    public void clear(){
+        
+        txtMSSV.setText(null);
+        txtName.setText(null);
+        txtBorn.setText(null);
+        txtNumberPhone.setText(null);
+        txtEmail.setText(null);
+        txtAddress.setText(null);
+        
+
+    }
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        // TODO add your handling code here:
+        clear();
+        
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,6 +424,7 @@ public class Register_Students extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBackHome;
+    private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/doanjava/subjects.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>52</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/RegisterAccount.java</file>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/forgetPassword.java</file>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/DBConnection.java</file>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/Reset.java</file>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/LogIn.java</file>
+            <file>file:/C:/Users/AD/Documents/NetBeansProjects/projectJava2021/projectJava2021/src/doanjava/Register_Subjects.java</file>
+        </group>
     </open-files>
 </project-private>
