@@ -5,6 +5,8 @@
  */
 package doanjava;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +29,9 @@ public class Reset extends javax.swing.JFrame {
     //overload
     public Reset() {
         initComponents();
+        Toolkit tk= getToolkit();
+        Dimension size= tk.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
     public Reset(String username){
         this.user=username;

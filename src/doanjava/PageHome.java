@@ -9,9 +9,11 @@ package doanjava;
  *
  * @author AD
  */
+import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 public class PageHome extends javax.swing.JFrame {
 
     /**
@@ -19,6 +21,9 @@ public class PageHome extends javax.swing.JFrame {
      */
     public PageHome() {
         initComponents();
+        Toolkit tk= getToolkit();
+        Dimension size= tk.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
 
     /**

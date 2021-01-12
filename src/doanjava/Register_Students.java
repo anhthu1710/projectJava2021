@@ -6,7 +6,9 @@
 package doanjava;
 
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.text.DateFormat;
@@ -36,6 +38,10 @@ public class Register_Students extends javax.swing.JFrame {
         bg.add(rdNam);
         bg.add(rdNu);
         rdNu.setSelected(true);
+        
+        Toolkit tk= getToolkit();
+        Dimension size= tk.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
 
     /**
