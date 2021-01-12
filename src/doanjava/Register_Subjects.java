@@ -6,6 +6,7 @@
 package doanjava;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,15 +25,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -53,7 +45,7 @@ public class Register_Subjects extends javax.swing.JFrame {
     public Register_Subjects() {
         initComponents();
         con=DBConnection.connectDB();
-        std.fillStudentRegister(table, "");
+        std.fillStudentRegister(table,"");
         model = (DefaultTableModel)table.getModel();
         table.setRowHeight(30);
     }
@@ -175,6 +167,11 @@ public class Register_Subjects extends javax.swing.JFrame {
                 lblNumberphoneActionPerformed(evt);
             }
         });
+        lblNumberphone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lblNumberphoneKeyPressed(evt);
+            }
+        });
 
         cbClass2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Không đăng kí lớp", "Lớp 1", "Lớp 2", "Lớp 3" }));
 
@@ -222,11 +219,14 @@ public class Register_Subjects extends javax.swing.JFrame {
         ));
         table.setColumnSelectionAllowed(true);
         table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tableMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tableMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tableMousePressed(evt);
             }
         });
         jScrollPane2.setViewportView(table);
@@ -298,23 +298,20 @@ public class Register_Subjects extends javax.swing.JFrame {
                         .addContainerGap(52, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(141, 141, 141)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblSubject2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSubject1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSubject3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(45, 45, 45)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addGap(141, 141, 141)
-                                        .addComponent(jLabel9))
-                                    .addComponent(jLabel7)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblSubject2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblSubject1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblSubject3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbClass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbClass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbClass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(29, 29, 29))
+                                    .addComponent(cbClass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbClass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbClass3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel2)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,8 +458,18 @@ public class Register_Subjects extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMSSVActionPerformed
 
     public boolean verifyText(){
+        Date date = Calendar.getInstance().getTime();  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+        String strDate = dateFormat.format(date); 
+        
+        if(lblBorn.getText().compareTo(strDate)>0){
+            JOptionPane.showMessageDialog(null, "When born > date current, this will not allowed");
+            return false;
+        }
+        else{
             JOptionPane.showMessageDialog(null, "You just choose this student!!");
             return true;
+        }
     }
     
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
@@ -585,9 +592,42 @@ public class Register_Subjects extends javax.swing.JFrame {
         String class_subject_two= cbClass2.getItemAt(cbClass2.getSelectedIndex());
         String class_subject_three= cbClass3.getItemAt(cbClass3.getSelectedIndex());
         
-        subjects std= new subjects();
-        std.insertUpdateDeleteStudentSubject('i', null, name_student_subject,born_student_subject, codeStudent, number_phone, name_subject_one,name_subject_two, name_subject_three, class_subject_one, class_subject_two, class_subject_three);
+        if(verifyText()){
+            Date date = Calendar.getInstance().getTime();  
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd  hh:mm:ss");  
+            String strDate = dateFormat.format(date); 
+            
+            subjects std= new subjects();
+            std.insertUpdateDeleteStudentSubject('i', null, name_student_subject,born_student_subject, codeStudent, number_phone, name_subject_one,name_subject_two, name_subject_three, class_subject_one, class_subject_two, class_subject_three);
+        }
+        
+        
     }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void tableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableMouseEntered
+
+    private void lblNumberphoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblNumberphoneKeyPressed
+        // TODO add your handling code here:
+        String phoneNumber = lblNumberphone.getText();
+        int length = phoneNumber.length();
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9')
+        {
+           if(length < 13){
+               lblNumberphone.setEditable(true);
+           }else{
+               lblNumberphone.setEditable(false);
+           }
+        }else{
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE ){
+                lblNumberphone.setEditable(true);
+            }else{
+                lblNumberphone.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_lblNumberphoneKeyPressed
 
     /**
      * @param args the command line arguments

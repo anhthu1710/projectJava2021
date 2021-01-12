@@ -165,7 +165,10 @@ public class PageHome extends javax.swing.JFrame {
 
     private void btnQuanlyhocvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanlyhocvienActionPerformed
         // TODO add your handling code here:
-
+        ManagerStudents dkhv=new ManagerStudents();
+        dkhv.setVisible(true);
+        dkhv.setTitle("Manager Students");
+        dispose();
     }//GEN-LAST:event_btnQuanlyhocvienActionPerformed
 
     private void btnDangkihocvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangkihocvienActionPerformed

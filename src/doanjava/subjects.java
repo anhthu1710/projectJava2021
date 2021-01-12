@@ -46,7 +46,7 @@ public class subjects {
                     JOptionPane.showMessageDialog(null, "Success!! register subject for student...");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(subjects.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -87,14 +87,14 @@ public class subjects {
                     row[4] = rs.getString(5);
                     row[5] = rs.getString(6);
                     row[6] = rs.getString(7);
-                    row[7] = rs.getString(8);
+//                    row[7] = rs.getString(8);
                     row[8] = rs.getString(9);
                     row[9] = rs.getString(10);
                     row[10] = rs.getString(11);
                     model.addRow(row);
                 }
         } catch (SQLException ex) {
-                Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(subjects.class.getName()).log(Level.SEVERE, null, ex);
             }
     } 
 }

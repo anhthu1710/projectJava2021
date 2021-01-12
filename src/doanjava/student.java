@@ -44,4 +44,42 @@ public class student {
     }
     
     
+    
+    public void fillRegisterStudent(JTable tableStudents, String valueToSearch){
+        Connection con=DBConnection.connectDB();
+        PreparedStatement ps;
+        
+        try {
+               
+                
+                ps = con.prepareStatement("SELECT *  From student_hocvien Where CONCAT("
+                        + "idstudent_hocvien"
+                        + ",name_student,"
+                        + "sex,"
+                        + "born,"
+                        + "number_phone,"
+                        + "email,"
+                        + "address) like ?");
+                ps.setString(1,"%"+valueToSearch+"%");
+                
+                ResultSet rs= ps.executeQuery();
+                DefaultTableModel model = (DefaultTableModel)tableStudents.getModel();
+                 
+                Object[] row;
+            
+                while(rs.next()){
+                    row = new Object[7];
+                    row[0] = rs.getInt(1);
+                    row[1] = rs.getString(2);
+                    row[2] = rs.getString(3);
+                    row[3] = rs.getString(4);
+                    row[4] = rs.getString(5);
+                    row[5] = rs.getString(6);
+                    row[6] = rs.getString(7);
+                    model.addRow(row);
+                }
+        } catch (SQLException ex) {
+                Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    } 
 }
