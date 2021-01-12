@@ -30,13 +30,13 @@ public class ManagerStudents extends javax.swing.JFrame {
     public ManagerStudents() {
         initComponents();
         con=DBConnection.connectDB();
-        std.fillRegisterStudent(tableStudents,"");
+        std.fillRegisterStudent(tableStudents,"");      
         tableStudents.setRowHeight(30);
         
         Toolkit tk= getToolkit();
         Dimension size= tk.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
-    }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
